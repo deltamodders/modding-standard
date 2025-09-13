@@ -1,0 +1,19 @@
+{
+    "metadata": {
+        "name": "example",
+        "version": "1.0.0",
+        "description": "Lorem ipsum",
+        "author": ["Mod Developer 1", "Mod Developer 2"],
+        "demoMod": true,
+        "packageID": "website.mod.author",
+        "url": "https://example.com",
+        "tags": ["other", "customization"]
+    },
+    "deltaruneTargetVersion": "1.04",
+    "neededFiles": [
+        {
+            "file": "data.win",
+            "checksum": "YOUR CHECKSUM HERE"
+        }
+    ]
+}
