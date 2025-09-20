@@ -38,14 +38,14 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 ```
 This is an example on how a `_deltamodInfo.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
-# DELTAHUB-specific fields
+## DELTAHUB-specific fields
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
 You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the DELTAHUB specific standard. 
 - The `url` field is just a link to your mod page.
 - The `tags` field is an array of tags that describe your mod. The supported tags are `translation, text, customization, gameplay, other`. 
 - The `deltaruneTargetVersion` is the DELTARUNE version needed by your mod. Deltamod does not perform checks on target version, but instead uses `neededFiles`.
 
-### `packageID`
+## `packageID`
 Starting with Deltamod <i>1.2</i>, all Deltamod mods should have an unique `packageID`.<br /><br />
 _The system works similarly to the Android system, where for example Minecraft is assigned the ID `com.mojang.minecraftpe`.<br /><br />_
 You can format your packageID like so: 
@@ -56,7 +56,7 @@ Remember that dots cannot be entered in any of the fields as they are a reserved
 If you don't want to specify one or more of the package parts (like your username, website name or mod name) just replace the values with `und`. <b>If all three parts are `und`, making a package ID `und.und.und` Deltamod will consider the ID invalid.</b><br /><br />
 If an ID is invalid or missing, Deltamod will generate one based on the already present information.
 
-### `neededFiles`
+## `neededFiles`
 In the `neededFiles` array, you can make sure your Deltarune files are the same ones as the ones on your user's computer.<br /><br />
 For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`. Look at this graph:<br /><br />
 <img width="591" height="221" alt="d1" src="https://github.com/user-attachments/assets/e0476db0-7ba3-4150-8bfb-70779db81805" /><br /><br />
