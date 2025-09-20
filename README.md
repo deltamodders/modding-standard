@@ -1,4 +1,8 @@
-_Valid for Deltamod, version 1.0-1.1.1_
+_Standard Revision 3_<br /><br />
+_Compatibility table:_
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 |
+|-------------|-----|-----|-------|-----|
+| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |
 
 # Deltamod Standard
 This file includes information on how a Deltamod modpack should be structured.
