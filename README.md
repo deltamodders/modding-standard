@@ -1,8 +1,8 @@
 _Standard Revision 3_<br /><br />
 _Compatibility table:_
-|             | 1.0 | 1.1 | 1.1.1 | 1.2 |
-|-------------|-----|-----|-------|-----|
-| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 |
+|-------------|-----|-----|-------|-----|-----|
+| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |  ✅  
 
 # Deltamod Standard
 This file includes information on how a Deltamod modpack should be structured.
