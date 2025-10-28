@@ -13,6 +13,8 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to actually patch the game and install your mod.
 - `_icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder.
 
+_(**NEW!** Create modpack JSON and XML files easily using the [MiscTools](https://gamebanana.com/tools/21003), a series of tools made specifically for mod makers. Read below if you want to make files manually)_
+
 ## `_deltamodInfo.json`
 
 ```json
@@ -58,8 +60,7 @@ If an ID is invalid or missing, Deltamod will generate one based on the already 
 
 ## `neededFiles`
 In the `neededFiles` array, you can make sure your Deltarune files are the same ones as the ones on your user's computer.<br /><br />
-For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`. Look at this graph:<br /><br />
-<img width="591" height="221" alt="d1" src="https://github.com/user-attachments/assets/e0476db0-7ba3-4150-8bfb-70779db81805" /><br /><br />
+For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`.
 You can use checksumming to check, for example, if your user has the same Deltarune version as you.<br /><br />
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
 ## `modding.xml`
@@ -76,7 +77,7 @@ Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there 
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
 
 ## Packing an Archive
-Deltamod supports .ZIP, .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
+Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
 ```
 .
 └── (root of the archive)/
@@ -86,4 +87,6 @@ Deltamod supports .ZIP, .7Z, .TAR.GZ and .LZMA archives. They must be packaged l
     └── (any needed patch file)
 ```
 ## License
-This standard is licensed under a modified version of the EUPL, _EUPL-1.2-DELTAMOD_. Read it [here](./LICENSE.txt)
+This standard is licensed under a modified version of the EUPL, _EUPL-1.2-DELTAMOD_. Read it [here](./LICENSE.txt).
+
+**TLDR: The license allows Deltamod makers to remove your right to use the standard.**
