@@ -1,8 +1,8 @@
-_Standard Revision 3_<br /><br />
+_Standard Revision 4_<br /><br />
 _Compatibility table:_
-|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 |
-|-------------|-----|-----|-------|-----|-----|
-| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |  ✅  
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.4 (Future)
+|-------------|-----|-----|-------|-----|-----|--------|
+| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |  ✅  |  ✅  
 
 # Deltamod Standard
 This file includes information on how a Deltamod modpack should be structured.
@@ -75,6 +75,9 @@ Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there 
 
 **xdelta** type supports the following file extensions: '.xdelta', '.vcdiff', '.csx', and '.win' <br /> <br />
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
+
+## The `screenshots` folder
+Starting with Deltamod **1.4**, you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
 
 ## Packing an Archive
 Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
