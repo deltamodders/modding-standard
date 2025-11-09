@@ -44,7 +44,7 @@ This is an example on how a `_deltamodInfo.json` should be structured. Deltamod 
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
 You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the DELTAHUB specific standard. 
 - The `url` field is just a link to your mod page.
-- The `tags` field is an array of tags that describe your mod. The supported tags are `translation, text, customization, gameplay, other`. 
+- The `tags` field is an array of tags that describe your mod. The supported tags are `textedit, customization, gameplay, other`. 
 - The `deltaruneTargetVersion` is the DELTARUNE version needed by your mod. Deltamod does not perform checks on target version, but instead uses `neededFiles`.
 
 ## `packageID`
