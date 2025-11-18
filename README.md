@@ -22,6 +22,11 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
     "metadata": {
         "name": "example",
         "version": "1.0.0",
+        "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255
+        },
         "description": "Lorem ipsum",
         "author": ["Mod Developer 1", "Mod Developer 2"],
         "demoMod": true,
