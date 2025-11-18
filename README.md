@@ -1,21 +1,21 @@
-_Standard Revision 4_<br /><br />
+_Standard Revision 5_<br /><br />
 _Compatibility table:_
-|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.4 (Future)
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.4
 |-------------|-----|-----|-------|-----|-----|--------|
-| Compatible? |  ❌  |  ✅ |   ✅   |  ✅  |  ✅  |  ✅  
+| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ✅  
 
 # Deltamod Standard
 This file includes information on how a Deltamod modpack should be structured.
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
-- `_deltamodInfo.json` is a file dedicated to storing the mod's name, authors, version and mod type (full game or demo). It is mainly used in UI and compatibility checks.
+- `meta.json` is a file dedicated to storing the mod's name, authors, version and mod type (full game or demo). It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to actually patch the game and install your mod.
-- `_icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder.
+- `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder.
 
-_(**NEW!** Create modpack JSON and XML files easily using the [MiscTools](https://gamebanana.com/tools/21003), a series of tools made specifically for mod makers. Read below if you want to make files manually)_
+You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `meta.json` and `modding.xml` file.
 
-## `_deltamodInfo.json`
+## `meta.json`
 
 ```json
 {
@@ -38,7 +38,7 @@ _(**NEW!** Create modpack JSON and XML files easily using the [MiscTools](https:
     ]
 }
 ```
-This is an example on how a `_deltamodInfo.json` should be structured. Deltamod checks the file is valid before loading the mod. 
+This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
 ## DELTAHUB-specific fields
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
@@ -84,9 +84,9 @@ Deltamod supports .ZIP (Preferred format for compatibility with most websites), 
 ```
 .
 └── (root of the archive)/
-    ├── _deltamodInfo.json
+    ├── meta.json
     ├── modding.xml
-    ├── _icon.png
+    ├── icon.png
     └── (any needed patch file)
 ```
 ## License
