@@ -45,6 +45,8 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
 ```
 This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
+The color field is the color the gradient of your mod should show near your icon. Select a color which better blends in with the icon.
+
 ## DELTAHUB-specific fields
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
 You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the DELTAHUB specific standard. 
