@@ -4,8 +4,10 @@ _Compatibility table:_
 |-------------|-----|-----|-------|-----|-----|--------|
 | Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ✅  
 
-# Deltamod Standard
-This file includes information on how a Deltamod modpack should be structured.
+# Deltamod Modding Standard
+This file includes information on how a Deltamod-compatible modpack should be structured.
+
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by Deltamodders), **Deltahub** (by Y114)
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
