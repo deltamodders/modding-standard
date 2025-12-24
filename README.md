@@ -35,7 +35,6 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
         },
         "description": "Lorem ipsum",
         "author": ["Mod Developer 1", "Mod Developer 2"],
-        "demoMod": true,
         "packageID": "website.mod.author",
         "game": "toby.deltarune"
         "url": "https://example.com",
@@ -53,23 +52,16 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
 This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
 ## Other games
-With Deltamod 1.4, **Undertale and Undertale Yellow** will receive support in Deltamod. This means that the `demoMod` field is going to be outdated when 1.4 releases.<br /> <br />
-Right now, we suggest you use both `demoMod` and `game` in your meta.json **if you are making a DELTARUNE mod**, to enable compatibility with previous versions. In fact, **Deltamod 1.3.1 and DELTAHUB's Deltamod interpreter** do not support multiple games and will not be able to interpret the `game` field appropriately. <br /> <br /> Otherwise, if you're just futureproofing your UNDERTALE/UTYELLOW mod, you can also only indicate the `game` field and not the `demoMod` field.
+With Deltamod 1.4, **Undertale and Undertale Yellow** will receive support in Deltamod. This means that the `demoMod` field is now deprecated.<br /> <br />
+You must now use the `game` variable which contains an ID which is uniquely given to every game supported by Deltamod.<br />
 
 Supported game IDs (which can be added in the `game` field) are:
 - `toby.deltarune` (DELTARUNE)
 - `toby.deltarune.demo` (DELTARUNE Ch1&2)
 - `fans.utyellow` (UNDERTALE Yellow)
 - `toby.undertale` (UNDERTALE)
-More games may be added as time goes on.<br /><br />
-Here's a schematic table to help you decide which fields to add.
-
-| | Making DELTARUNE mods | Making UNDERTALE/UTYELLOW mods |
-|-|----------------------|------------------------|
-|Use the `game` field | Yes (Use new Standard X) | Yes (Use new Standard X) |
-|Use the `demoMod` field | Yes (Ensure forward compatibility) | No (Older versions won't mod UNDERTALE or others) |
-
-MiscTools will release an update alongside 1.4's initial release to add support for other games. For now, modders wishing to futureproof their mods may use this standard.
+  
+More games may be added as time goes on. Deltamod will update mods with the `demoMod` field automatically for legacy support.<br />
 
 ## DELTAHUB-specific fields
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
