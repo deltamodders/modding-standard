@@ -2,16 +2,14 @@ _Standard Revision X_<br /><br />
 _Compatibility table:_
 |             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 (Future) |
 |-------------|-----|-----|-------|-----|-----|--------|-----|
-| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ⚠️ Take precautions to make your modpack work  | ✅ Fully supported |
-
-_Make sure to read the entirety of this document for more info about forward compatibility. [You can read more here. (Other games paragraph)](#other-games)_
+| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ |
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
 This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by Deltamodders) and **Deltahub** (by Y114), with partial support.
 
-Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is slowly implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
+Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
