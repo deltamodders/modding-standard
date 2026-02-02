@@ -7,7 +7,7 @@ _Compatibility table:_
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by Deltamodders) and **Deltahub** (by Y114), with partial support.
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and **Deltahub** (by Y114), with partial support.
 
 Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
