@@ -1,8 +1,25 @@
-_Standard Revision X_<br /><br />
+_Standard Revision X2_<br /><br />
 _Compatibility table:_
-|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 |
-|-------------|-----|-----|-------|-----|-----|--------|-----|
-| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ |
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 | 1.5 |
+|-------------|-----|-----|-------|-----|-----|--------|-----|-----|
+| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ | ✅ |
+
+# Index
+
+- [Compatibility Table](#compatibility-table)
+- [Deltamod Modding Standard](#deltamod-modding-standard)
+  - [Basic rules of the format](#basic-rules-of-the-format)
+- [`meta.json`](#metajson)
+  - [`mergeSupport`](#mergesupport)
+  - [`game`](#game)
+  - [DELTAHUB-specific fields](#deltahub-specific-fields)
+  - [`packageID`](#packageid)
+  - [`neededFiles`](#neededfiles)
+- [`modding.xml`](#moddingxml)
+  - [Patch types](#patch-types)
+- [The `screenshots` folder](#the-screenshots-folder)
+- [Packing an Archive](#packing-an-archive)
+- [License](#license)
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
@@ -36,6 +53,7 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
         "packageID": "website.mod.author",
         "game": "toby.deltarune"
         "url": "https://example.com",
+        "mergeSupport": true,
         "tags": ["other", "customization"]
     },
     "deltaruneTargetVersion": "1.04",
@@ -49,7 +67,11 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
 ```
 This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
-## Other games
+### `mergeSupport`
+Starting Deltamod 1.5, you can now choose to disable mod merging for your mod. If enabled, this will disallow the user from merging your mod with others.<br />
+**We highly reccomend turning this on only if absolutely neeeded**
+
+### `game`
 With Deltamod 1.4, **Undertale and Undertale Yellow** will receive support in Deltamod. This means that the `demoMod` field is now deprecated.<br /> <br />
 You must now use the `game` variable which contains an ID which is uniquely given to every game supported by Deltamod.<br />
 
@@ -58,10 +80,11 @@ Supported game IDs (which can be added in the `game` field) are:
 - `toby.deltarune.demo` (DELTARUNE Ch1&2)
 - `fans.utyellow` (UNDERTALE Yellow)
 - `toby.undertale` (UNDERTALE)
+- `other.pizzatower` (Pizza Tower)
   
 More games may be added as time goes on. Deltamod will update mods with the `demoMod` field automatically for legacy support.<br />
 
-## DELTAHUB-specific fields
+### DELTAHUB-specific fields
 Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
 You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the DELTAHUB specific standard. 
 - The `url` field is just a link to your mod page.
@@ -69,7 +92,7 @@ You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, whic
 - The `deltaruneTargetVersion` is the DELTARUNE version needed by your mod. Deltamod does not perform checks on target version, but instead uses `neededFiles`.
   **This field is only needed when making a DELTARUNE mod.**
 
-## `packageID`
+### `packageID`
 Starting with Deltamod <i>1.2</i>, all Deltamod mods should have an unique `packageID`.<br /><br />
 _The system works similarly to the Android system, where for example Minecraft is assigned the ID `com.mojang.minecraftpe`.<br /><br />_
 You can format your packageID like so: 
@@ -80,11 +103,12 @@ Remember that dots cannot be entered in any of the fields as they are a reserved
 If you don't want to specify one or more of the package parts (like your username, website name or mod name) just replace the values with `und`. <b>If all three parts are `und`, making a package ID `und.und.und` Deltamod will consider the ID invalid.</b><br /><br />
 If an ID is invalid or missing, Deltamod will generate one based on the already present information.
 
-## `neededFiles`
+### `neededFiles`
 In the `neededFiles` array, you can make sure your game files are the same ones as the ones on your user's computer.<br /><br />
 For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`.
 You can use checksumming to check, for example, if your user has the same game version as you.<br /><br />
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
+
 ## `modding.xml`
 
 ```xml
@@ -99,7 +123,7 @@ Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there 
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
 
 ## The `screenshots` folder
-Starting with Deltamod **1.4**, you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
+Starting with Deltamod **1.4** (TBD when these are going to be used), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
 
 ## Packing an Archive
 Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
