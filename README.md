@@ -2,7 +2,7 @@ _Standard Revision X2_<br /><br />
 _Compatibility table:_
 |             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 | 1.5 |
 |-------------|-----|-----|-------|-----|-----|--------|-----|-----|
-| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ | ✅ |
+| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ Partial support | ✅ |
 
 # Index
 
