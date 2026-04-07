@@ -1,8 +1,8 @@
-_Standard Revision X2_<br /><br />
+_Standard Revision 2.1_<br /><br />
 _Compatibility table:_
-|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 | 1.4.1 | 1.5 |
-|-------------|-----|-----|-------|-----|-----|--------|-----|-----|------|
-| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ Partial support | ✅ Partial support | ✅ |
+|             | 1.0 | 1.1 | 1.1.1 | 1.2 | 1.3 | 1.3.1 | 1.4 | 1.4.1 | 1.5 | 1.6 - 1.6.1 | 1.7 |
+|-------------|-----|-----|-------|-----|-----|--------|-----|-----|------|------------|----|
+| Compatible? |  ❌  |  ❌ |   ❌   |  ❌  |  ❌  |  ❌  | ✅ Partial support | ✅ Partial support | ✅ | ✅ | ✅ |
 
 # Index
 
@@ -12,7 +12,7 @@ _Compatibility table:_
 - [`meta.json`](#metajson)
   - [`mergeSupport`](#mergesupport)
   - [`game`](#game)
-  - [DELTAHUB-specific fields](#deltahub-specific-fields)
+  - [G3M-specific fields](#deltahub-specific-fields)
   - [`packageID`](#packageid)
   - [`neededFiles`](#neededfiles)
 - [`modding.xml`](#moddingxml)
@@ -24,7 +24,7 @@ _Compatibility table:_
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and **Deltahub** (by Y114), with partial support.
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and **G3M** (formerly Deltahub, by Y114), with partial support.
 
 Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
@@ -68,8 +68,8 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
 This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
 
 ### `mergeSupport`
-Starting Deltamod 1.5, you can now choose to disable mod merging for your mod. If enabled, this will disallow the user from merging your mod with others.<br />
-**We highly reccomend turning this on only if absolutely neeeded**
+Starting Deltamod 1.5, you can now choose to disable mod merging for your mod. If set to false, this variable will disallow the user from merging your mod with others.<br />
+**We highly reccomend turning this on only if absolutely neeeded!**
 
 ### `game`
 With Deltamod 1.4, **Undertale and Undertale Yellow** will receive support in Deltamod. This means that the `demoMod` field is now deprecated.<br /> <br />
@@ -84,9 +84,9 @@ Supported game IDs (which can be added in the `game` field) are:
   
 More games may be added as time goes on. Deltamod will update mods with the `demoMod` field automatically for legacy support.<br />
 
-### DELTAHUB-specific fields
-Starting with DELTAHUB <i>"2.1.0 STABLE"</i>, this mod format will be also implemented in [**DELTAHUB**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **DELTAHUB** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with DELTAHUB.<br /><br />
-You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the DELTAHUB specific standard. 
+### G3M (Deltahub) specific fields
+This mod format is also implemented in [**G3M**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **G3M** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with G3M.<br /><br />
+You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the G3M's specific standard. 
 - The `url` field is just a link to your mod page.
 - The `tags` field is an array of tags that describe your mod. The supported tags are `textedit, customization, gameplay, other`.
 - The `deltaruneTargetVersion` is the DELTARUNE version needed by your mod. Deltamod does not perform checks on target version, but instead uses `neededFiles`.
@@ -123,7 +123,7 @@ Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there 
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
 
 ## The `screenshots` folder
-Starting with Deltamod **1.4** (TBD when these are going to be used), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
+Starting in a future version of Deltamod (TBD), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
 
 ## Packing an Archive
 Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
