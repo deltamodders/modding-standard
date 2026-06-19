@@ -30,7 +30,7 @@ Additionally, with the newest additions to Deltamod, this format may be the best
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
-- `meta.json` is a file dedicated to storing the mod's name, authors, version and mod type (full game or demo). It is mainly used in UI and compatibility checks.
+- `meta.json` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to actually patch the game and install your mod.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder.
 
@@ -78,6 +78,7 @@ You must now use the `game` variable which contains an ID which is uniquely give
 Supported game IDs (which can be added in the `game` field) are:
 - `toby.deltarune` (DELTARUNE)
 - `toby.deltarune.demo` (DELTARUNE Ch1&2)
+- - `toby.deltarune.demolts` (DELTARUNE Ch1&2 - LTS version)
 - `fans.utyellow` (UNDERTALE Yellow)
 - `toby.undertale` (UNDERTALE)
 - `other.pizzatower` (Pizza Tower)
