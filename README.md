@@ -1,38 +1,17 @@
-_Standard Revision 2.1_<br /><br />
-_Compatibility table:_
-|             | 1.0 - 1.3.1 | 1.4 | 1.4.1 | 1.5 | 1.6 | 1.6.1 | 1.7 | 1.8 | 1.9 - 1.9.1 |
-|-------------|-------------|-----|------|------|------|--------|-----|------|------------|
-| Compatible? |  ❌   | ✅ Partial support | ✅ Partial support | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-# Index
-
-- [Compatibility Table](#compatibility-table)
-- [Deltamod Modding Standard](#deltamod-modding-standard)
-  - [Basic rules of the format](#basic-rules-of-the-format)
-- [`meta.json`](#metajson)
-  - [`mergeSupport`](#mergesupport)
-  - [`game`](#game)
-  - [G3M-specific fields](#deltahub-specific-fields)
-  - [`packageID`](#packageid)
-  - [`neededFiles`](#neededfiles)
-- [`modding.xml`](#moddingxml)
-  - [Patch types](#patch-types)
-- [The `screenshots` folder](#the-screenshots-folder)
-- [Packing an Archive](#packing-an-archive)
-- [License](#license)
+_Standard Revision 2.2_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and **G3M** (formerly Deltahub, by Y114), with partial support.
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114).
 
 Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
 - `meta.json` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
-- `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to actually patch the game and install your mod.
-- `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder.
+- `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
+- `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
 You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `meta.json` and `modding.xml` file.
 
@@ -65,60 +44,58 @@ You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `m
     ]
 }
 ```
-This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid before loading the mod. 
+This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod. 
 
 ### `mergeSupport`
-Starting Deltamod 1.5, you can now choose to disable mod merging for your mod. If set to false, this variable will disallow the user from merging your mod with others.<br />
-**We highly reccomend turning this on only if absolutely neeeded!**
+If set to false, this variable will disallow the user from merging your mod with others.<br />
+**We highly recommend turning this on only if absolutely neeeded!** Users like to use multiple mods.
 
 ### `game`
-With Deltamod 1.4, **Undertale and Undertale Yellow** will receive support in Deltamod. This means that the `demoMod` field is now deprecated.<br /> <br />
-You must now use the `game` variable which contains an ID which is uniquely given to every game supported by Deltamod.<br />
-
 Supported game IDs (which can be added in the `game` field) are:
 - `toby.deltarune` (DELTARUNE)
 - `toby.deltarune.demo` (DELTARUNE Ch1&2)
-- - `toby.deltarune.demolts` (DELTARUNE Ch1&2 - LTS version)
+- `toby.deltarune.demolts` (DELTARUNE Ch1&2 - LTS version)
 - `fans.utyellow` (UNDERTALE Yellow)
 - `toby.undertale` (UNDERTALE)
 - `other.pizzatower` (Pizza Tower)
   
 More games may be added as time goes on. Deltamod will update mods with the `demoMod` field automatically for legacy support.<br />
 
-### G3M (Deltahub) specific fields
-This mod format is also implemented in [**G3M**](https://gamebanana.com/tools/20615).<br /><br /> As part of our deal to merge formats, we've added new fields needed for **G3M** to function. While Deltamod does not require these strictly, it is reccomended to add them, even if you don't want to make your mod compatible with G3M.<br /><br />
-You will need to add the `url`, `tags` and `deltaruneTargetVersion` fields, which are mirrored from the G3M's specific standard. 
-- The `url` field is just a link to your mod page.
-- The `tags` field is an array of tags that describe your mod. The supported tags are `textedit, customization, gameplay, other`.
-- The `deltaruneTargetVersion` is the DELTARUNE version needed by your mod. Deltamod does not perform checks on target version, but instead uses `neededFiles`.
-  **This field is only needed when making a DELTARUNE mod.**
-
 ### `packageID`
-Starting with Deltamod <i>1.2</i>, all Deltamod mods should have an unique `packageID`.<br /><br />
-_The system works similarly to the Android system, where for example Minecraft is assigned the ID `com.mojang.minecraftpe`.<br /><br />_
 You can format your packageID like so: 
 ```
-website.modname.authorname
+websitename.modname.authorname
 ```
 Remember that dots cannot be entered in any of the fields as they are a reserved character. Only use them for separating the blocks.<br /><br />
 If you don't want to specify one or more of the package parts (like your username, website name or mod name) just replace the values with `und`. <b>If all three parts are `und`, making a package ID `und.und.und` Deltamod will consider the ID invalid.</b><br /><br />
 If an ID is invalid or missing, Deltamod will generate one based on the already present information.
 
+### `deltaruneTargetVersion`
+If your mod is not for DELTARUNE, leave the space empty. This is used by G3M to distinguish mods between DELTARUNE versions.<br /><br />
+_A future version of Deltamod will also implement this to distinguish Ch5 mods from Ch3+4 mods._
+
 ### `neededFiles`
-In the `neededFiles` array, you can make sure your game files are the same ones as the ones on your user's computer.<br /><br />
+In the `neededFiles` array, you can make sure your game files are the same ones as the ones on your user's computer. Every element in the array is one filename + hash combo.<br /><br />
 For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`.
 You can use checksumming to check, for example, if your user has the same game version as you.<br /><br />
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
 
 ## `modding.xml`
 
+> [!NOTE]
+> `override` also acts as the copy command. If you need to **copy**, not replace a file, use `override`.
+
 ```xml
 <patch type="xdelta" patch="./example.xdelta" to="./chapter3_windows/data.win" />
 <patch type="override" patch="./example.win" to="./chapter4_windows/data.win" />
 ```
 
-This is an example on how a `modding.xml` should be correctly structured. There are currently 2 types of patch: **xdelta** _(which inputs the file through GM3P in order to patch the requested file)_ and **override** (which simply replaces the file)<br /><br />
-Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there are any missing/invalid fields, the program will invalidate that specific patch.
+This is an example on how a `modding.xml` should be correctly structured. There are currently 2 types of patch: **xdelta** _(which inputs the file through the patcher in order to patch the requested file)_ and **override** (which simply replaces the file or copies it)<br /><br />
+Every patch tag has three necessary fields: `type`, `patch`, and `to`. 
+- type is either `xdelta` or `override`
+- patch is the relative path to your patch (relative to modpack)
+- to is the relative path to the destination file (relative to game folder)
+If there are any missing/invalid fields, Deltamod will invalidate that specific patch.
 
 **xdelta** type supports the following file extensions: '.xdelta', '.vcdiff', '.csx', and '.win' <br /> <br />
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
@@ -126,7 +103,8 @@ Every patch tag has three necessary fields: `patch`, `to`, and `type`. If there 
 ## The `screenshots` folder
 Starting in a future version of Deltamod (TBD), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
 
-## Packing an Archive
+## Preparing your archive
+
 Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
 ```
 .
@@ -136,6 +114,11 @@ Deltamod supports .ZIP (Preferred format for compatibility with most websites), 
     ├── icon.png
     └── (any needed patch file)
 ```
-## License
-This standard is licensed under a modified version of the EUPL, _EUPL-1.2-DELTAMOD_. Read it [here](./LICENSE.txt).
-**TLDR: The license allows Deltamod makers to remove your right to use the standard, but we pledge to only use it when highly needed.**
+
+> [!CAUTION]
+> One of the most common errors modmakers make when creating modpacks are creating a ZIP with a subfolder in them, and then putting their mod's contents in it. **Your modpack will not work if you make this mistake!** Make sure every file is at the root of the ZIP.
+
+# You're done!
+Your mod is now ready to be used in Deltamod. Everybody, go home!<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+...<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+since you're still here, go check out [Deltamod](https://gamebanana.com/tools/20575)
