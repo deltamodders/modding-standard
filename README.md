@@ -13,9 +13,9 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
-You can use the [MiscTools](https://gamebanana.com/tools/21003) to create the `meta.json` and `modding.xml` file.
-
 ## `meta.json`
+> [!NOTE]
+> You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
 
 ```json
 {
@@ -81,6 +81,9 @@ You can use checksumming to check, for example, if your user has the same game v
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
 
 ## `modding.xml`
+
+> [!NOTE]
+> You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
 
 > [!NOTE]
 > `override` also acts as the copy command. If you need to **copy**, not replace a file, use `override`.
