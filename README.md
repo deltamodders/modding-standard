@@ -1,4 +1,4 @@
-_Standard Revision 2.2_<br />
+_Standard Revision 3_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
