@@ -86,7 +86,7 @@ You can use checksumming to check, for example, if your user has the same game v
 > You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
 
 > [!NOTE]
-> `override` also acts as the copy command. If you need to **copy**, not replace a file, use `override`.
+> `override` and `copy` behave the same. The name difference is only to clear out confusion. `copy` will also override files, and `override` will also copy files.
 
 ```xml
 <patch type="xdelta" patch="./example.xdelta" to="./chapter3_windows/data.win" />
@@ -95,13 +95,15 @@ You can use checksumming to check, for example, if your user has the same game v
 
 This is an example on how a `modding.xml` should be correctly structured. There are currently 2 types of patch: **xdelta** _(which inputs the file through the patcher in order to patch the requested file)_ and **override** (which simply replaces the file or copies it)<br /><br />
 Every patch tag has three necessary fields: `type`, `patch`, and `to`. 
-- type is either `xdelta` or `override`
+- type is either `xdelta`, `override`, `copy` and `g3mpatch` (last 2 only for Deltamod 2.0)
 - patch is the relative path to your patch (relative to modpack)
 - to is the relative path to the destination file (relative to game folder)
 If there are any missing/invalid fields, Deltamod will invalidate that specific patch.
 
 **xdelta** type supports the following file extensions: '.xdelta', '.vcdiff', '.csx', and '.win' <br /> <br />
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
+**copy** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx'. It is only an alternative name for override. <br /> <br />
+**g3mpatch** type only supports '.g3mpatch' files.<br /> <br />
 
 ## The `screenshots` folder
 Starting in a future version of Deltamod (TBD), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
@@ -122,6 +124,4 @@ Deltamod supports .ZIP (Preferred format for compatibility with most websites), 
 > One of the most common errors modmakers make when creating modpacks are creating a ZIP with a subfolder in them, and then putting their mod's contents in it. **Your modpack will not work if you make this mistake!** Make sure every file is at the root of the ZIP.
 
 # You're done!
-Your mod is now ready to be used in Deltamod. Everybody, go home!<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-...<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-since you're still here, go check out [Deltamod](https://gamebanana.com/tools/20575)
+Your mod is now ready to be used in Deltamod.
