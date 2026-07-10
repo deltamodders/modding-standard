@@ -1,0 +1,20 @@
+deltaruneTargetVersion = "" # Remove if a non-DELTARUNE mod
+
+[metadata]
+name = "My Mod"
+version = "1.0.0"
+description = "My Description"
+author = ["Mod Author 1", "Mod Author 2"]
+url = "https://example.com"
+game = "toby.deltarune" # See below for valid game codes
+packageID = "test.pid.here" # See below for package ID styling guide
+mergeSupport = true
+
+[color]
+r = 0
+g = 0
+b = 0
+
+[[neededFiles]]
+file = "./chapter1_windows/data.win"
+checksum = "MY_CHECKSUM"
