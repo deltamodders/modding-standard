@@ -1,4 +1,4 @@
-_Standard Revision 3_<br />
+_Standard Revision 4_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
@@ -9,48 +9,44 @@ Additionally, with the newest additions to Deltamod, this format may be the best
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
-- `meta.json` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
+- `meta.toml` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
 ## `meta.json`
 > [!NOTE]
-> You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
+> You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file. Make sure to select the TOML export.
 
-```json
-{
-    "metadata": {
-        "name": "example",
-        "version": "1.0.0",
-        "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-        },
-        "description": "Lorem ipsum",
-        "author": ["Mod Developer 1", "Mod Developer 2"],
-        "packageID": "website.mod.author",
-        "game": "toby.deltarune"
-        "url": "https://example.com",
-        "mergeSupport": true,
-        "tags": ["other", "customization"]
-    },
-    "deltaruneTargetVersion": "1.04",
-    "neededFiles": [
-        {
-            "file": "data.win",
-            "checksum": "YOUR CHECKSUM HERE"
-        }
-    ]
-}
+```toml
+deltaruneTargetVersion = "" # Remove if a non-DELTARUNE mod
+
+[metadata]
+name = "My Mod"
+version = "1.0.0"
+description = "My Description"
+author = ["Mod Author 1", "Mod Author 2"]
+url = "https://example.com"
+game = "toby.deltarune" # See below for valid game codes
+packageID = "test.pid.here" # See below for package ID styling guide
+mergeSupport = true
+
+[color]
+r = 0
+g = 0
+b = 0
+
+[[neededFiles]]
+file = "./chapter1_windows/data.win"
+checksum = "MY_CHECKSUM"
 ```
-This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod. 
+This is an example on how a `meta.toml` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod.<br /><br />
+Deltamod will still import mods with a `meta.json`, and will convert them to TOML on load.
 
-### `mergeSupport`
+### `[[metadata]] mergeSupport`
 If set to false, this variable will disallow the user from merging your mod with others.<br />
 **We highly recommend turning this on only if absolutely neeeded!** Users like to use multiple mods.
 
-### `game`
+### `[[metadata]] game`
 Supported game IDs (which can be added in the `game` field) are:
 - `toby.deltarune` (DELTARUNE)
 - `toby.deltarune.demo` (DELTARUNE Ch1&2)
@@ -61,7 +57,7 @@ Supported game IDs (which can be added in the `game` field) are:
   
 More games may be added as time goes on. Deltamod will update mods with the `demoMod` field automatically for legacy support.<br />
 
-### `packageID`
+### `[[metadata]] packageID`
 You can format your packageID like so: 
 ```
 websitename.modname.authorname
@@ -81,7 +77,6 @@ You can use checksumming to check, for example, if your user has the same game v
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
 
 ## `modding.xml`
-
 > [!NOTE]
 > You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
 
@@ -114,7 +109,7 @@ Deltamod supports .ZIP (Preferred format for compatibility with most websites), 
 ```
 .
 └── (root of the archive)/
-    ├── meta.json
+    ├── meta.toml
     ├── modding.xml
     ├── icon.png
     └── (any needed patch file)
