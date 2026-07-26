@@ -38,6 +38,10 @@ b = 0
 [[neededFiles]]
 file = "./chapter1_windows/data.win"
 checksum = "MY_CHECKSUM"
+
+[[neededFiles]]
+file = "./chapter2_windows/data.win"
+checksum = "MY_CHECKSUM"
 ```
 This is an example on how a `meta.toml` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod.<br /><br />
 Deltamod will still import mods with a `meta.json`, and will convert them to TOML on load.
