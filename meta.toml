@@ -18,3 +18,7 @@ b = 0
 [[neededFiles]]
 file = "./chapter1_windows/data.win"
 checksum = "MY_CHECKSUM"
+
+[[neededFiles]]
+file = "./chapter2_windows/data.win"
+checksum = "MY_CHECKSUM"

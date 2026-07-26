@@ -13,7 +13,7 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
-## `meta.json`
+## `meta.toml`
 > [!NOTE]
 > You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file. Make sure to select the TOML export.
 
@@ -38,13 +38,17 @@ b = 0
 [[neededFiles]]
 file = "./chapter1_windows/data.win"
 checksum = "MY_CHECKSUM"
+
+[[neededFiles]]
+file = "./chapter2_windows/data.win"
+checksum = "MY_CHECKSUM"
 ```
 This is an example on how a `meta.toml` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod.<br /><br />
 Deltamod will still import mods with a `meta.json`, and will convert them to TOML on load.
 
 ### `[[metadata]] mergeSupport`
-If set to false, this variable will disallow the user from merging your mod with others.<br />
-**We highly recommend turning this on only if absolutely neeeded!** Users like to use multiple mods.
+If set to false, this variable will warn the user against merging your mod with others.<br />
+**We highly recommend turning this off only if absolutely neeeded!** Users like to use multiple mods.
 
 ### `[[metadata]] game`
 Supported game IDs (which can be added in the `game` field) are:
