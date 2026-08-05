@@ -1,0 +1,21 @@
+deltaruneTargetVersion = "1.04"
+
+[metadata]
+name = "example"
+version = "1.0.0"
+description = "Lorem ipsum"
+author = [ "Mod Developer 1", "Mod Developer 2" ]
+packageID = "website.mod.author"
+game = "toby.deltarune"
+url = "https://example.com"
+mergeSupport = true
+tags = [ "other", "customization" ]
+
+[color]
+r = 0
+g = 0
+b = 0
+
+[[neededFiles]]
+file = "data.win"
+checksum = "YOUR CHECKSUM HERE"
