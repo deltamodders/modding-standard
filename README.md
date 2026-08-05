@@ -1,4 +1,4 @@
-_Standard Revision 3_<br />
+_Standard Revision 5_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
@@ -9,42 +9,39 @@ Additionally, with the newest additions to Deltamod, this format may be the best
 
 ## Basic rules of the format.
 There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
-- `meta.json` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
+- `meta.toml` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
-## `meta.json`
+## `meta.toml`
 > [!NOTE]
 > You can use the [MiscTools](https://gamebanana.com/tools/21003) to generate this file.
 
-```json
-{
-    "metadata": {
-        "name": "example",
-        "version": "1.0.0",
-        "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-        },
-        "description": "Lorem ipsum",
-        "author": ["Mod Developer 1", "Mod Developer 2"],
-        "packageID": "website.mod.author",
-        "game": "toby.deltarune"
-        "url": "https://example.com",
-        "mergeSupport": true,
-        "tags": ["other", "customization"]
-    },
-    "deltaruneTargetVersion": "1.04",
-    "neededFiles": [
-        {
-            "file": "data.win",
-            "checksum": "YOUR CHECKSUM HERE"
-        }
-    ]
-}
+```toml
+deltaruneTargetVersion = "1.04"
+
+[metadata]
+name = "example"
+version = "1.0.0"
+description = "Lorem ipsum"
+author = [ "Mod Developer 1", "Mod Developer 2" ]
+packageID = "website.mod.author"
+game = "toby.deltarune"
+url = "https://example.com"
+mergeSupport = true
+tags = [ "other", "customization" ]
+
+[color]
+r = 0
+g = 0
+b = 0
+
+[[neededFiles]]
+file = "data.win"
+checksum = "YOUR CHECKSUM HERE"
+
 ```
-This is an example on how a `meta.json` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod. 
+This is an example on how a `meta.toml` should be structured. Deltamod checks the file is valid and has the most important parts of it before loading the mod. It also converts JSON files to TOML automatically. 
 
 ### `mergeSupport`
 If set to false, this variable will disallow the user from merging your mod with others.<br />
@@ -95,7 +92,7 @@ You can use checksumming to check, for example, if your user has the same game v
 
 This is an example on how a `modding.xml` should be correctly structured. There are currently 2 types of patch: **xdelta** _(which inputs the file through the patcher in order to patch the requested file)_ and **override** (which simply replaces the file or copies it)<br /><br />
 Every patch tag has three necessary fields: `type`, `patch`, and `to`. 
-- type is either `xdelta`, `override`, `copy` and `g3mpatch` (last 2 only for Deltamod 2.0)
+- type is either `xdelta`, `override`, `copy`, `g3mpatch` or `csx`
 - patch is the relative path to your patch (relative to modpack)
 - to is the relative path to the destination file (relative to game folder)
 If there are any missing/invalid fields, Deltamod will invalidate that specific patch.
@@ -104,6 +101,7 @@ If there are any missing/invalid fields, Deltamod will invalidate that specific 
 **override** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx' <br /> <br />
 **copy** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx'. It is only an alternative name for override. <br /> <br />
 **g3mpatch** type only supports '.g3mpatch' files.<br /> <br />
+**csx** type only supports '.csx' scripts which work with UTMT.<br /> <br />
 
 ## The `screenshots` folder
 Starting in a future version of Deltamod (TBD), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
