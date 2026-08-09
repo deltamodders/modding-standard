@@ -1,9 +1,9 @@
-_Standard Revision 5_<br />
+_Standard Revision 6_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114).
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114) and GM3P (by the Deltamod & GM3P development team).
 
 Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
@@ -19,6 +19,7 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 
 ```toml
 deltaruneTargetVersion = "1.04"
+UTMTVersion = 9
 
 [metadata]
 name = "example"
@@ -68,8 +69,11 @@ If you don't want to specify one or more of the package parts (like your usernam
 If an ID is invalid or missing, Deltamod will generate one based on the already present information.
 
 ### `deltaruneTargetVersion`
-If your mod is not for DELTARUNE, leave the space empty. This is used by G3M to distinguish mods between DELTARUNE versions.<br /><br />
+This is used by G3M to distinguish mods between DELTARUNE versions. This is also used by GM3P to distinguish between versions of other games.<br /><br />
 _A future version of Deltamod will also implement this to distinguish Ch5 mods from Ch3+4 mods._
+
+### `UTMTVersion`
+If you don't use `.csx` patches, you may leave this blank. This is used by GM3P to determine what major UndertaleModTool version a C# script belongs to <br /><br />
 
 ### `neededFiles`
 In the `neededFiles` array, you can make sure your game files are the same ones as the ones on your user's computer. Every element in the array is one filename + hash combo.<br /><br />
