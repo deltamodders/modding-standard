@@ -1,9 +1,9 @@
-_Standard Revision 5_<br />
+_Standard Revision 6_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114).
+This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114) and GM3P (by the Deltamod & GM3P development team).
 
 Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
 
