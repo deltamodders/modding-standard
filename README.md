@@ -19,7 +19,7 @@ There should be 3 files (1 of which optional) dedicated to mod metadata and patc
 
 ```toml
 deltaruneTargetVersion = "1.04"
-UTMTVersion = 9;
+UTMTVersion = 9
 
 [metadata]
 name = "example"
