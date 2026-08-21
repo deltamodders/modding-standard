@@ -9,6 +9,7 @@ packageID = "website.mod.author"
 game = "toby.deltarune"
 url = "https://example.com"
 mergeSupport = true
+ai = "no" # Can be "fully", "partial" or "no".
 tags = [ "other", "customization" ]
 
 [color]

@@ -1,4 +1,4 @@
-_Standard Revision 5_<br />
+_Standard Revision 5.1_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
@@ -29,6 +29,7 @@ packageID = "website.mod.author"
 game = "toby.deltarune"
 url = "https://example.com"
 mergeSupport = true
+ai = "no"
 tags = [ "other", "customization" ]
 
 [color]
@@ -69,13 +70,15 @@ If an ID is invalid or missing, Deltamod will generate one based on the already 
 
 ### `deltaruneTargetVersion`
 If your mod is not for DELTARUNE, leave the space empty. This is used by G3M to distinguish mods between DELTARUNE versions.<br /><br />
-_A future version of Deltamod will also implement this to distinguish Ch5 mods from Ch3+4 mods._
 
 ### `neededFiles`
 In the `neededFiles` array, you can make sure your game files are the same ones as the ones on your user's computer. Every element in the array is one filename + hash combo.<br /><br />
 For example, you can specify the **SHA256 checksum** to look for in the Chapter 4 `data.win`.
 You can use checksumming to check, for example, if your user has the same game version as you.<br /><br />
 <i>To get a file's SHA256 hash, you can drop it [here](https://emn178.github.io/online-tools/sha256_checksum.html).</i>
+
+### `ai` field
+In this field, you can put `fully`, `partial` or `no`. This is a recommended disclosure of how GenAI was used in your mod. It may be mandatory on specific mod sharing websites, though.
 
 ## `modding.xml`
 
