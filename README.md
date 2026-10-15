@@ -1,4 +1,4 @@
-_Standard Revision 5.1_<br />
+_Standard Revision 6_<br />
 
 # Deltamod Modding Standard
 This file includes information on how a Deltamod-compatible modpack should be structured.
@@ -105,9 +105,6 @@ If there are any missing/invalid fields, Deltamod will invalidate that specific 
 **copy** type supports all files except the following: '.xdelta', '.vcdiff', and '.csx'. It is only an alternative name for override. <br /> <br />
 **g3mpatch** type only supports '.g3mpatch' files.<br /> <br />
 **csx** type only supports '.csx' scripts which work with UTMT.<br /> <br />
-
-## The `screenshots` folder
-Starting in a future version of Deltamod (TBD), you will be able to put a maximum of 10 screenshots in your modpack's screenshots folder. The format must be PNG, and preferrably of a 4:3 aspect ratio (640x480 ratio or higher). The image might get squished if not of the size here indicated.
 
 ## Preparing your archive
 

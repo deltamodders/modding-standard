@@ -1,18 +1,20 @@
-deltaruneTargetVersion = "1.04"
+# This is a sample, commented meta.toml file for a Deltarune mod. You can use this as a template for your own mod.
+
+deltaruneTargetVersion = "1.04" # Keep empty for non-DELTARUNE mods
 
 [metadata]
 name = "example"
 version = "1.0.0"
 description = "Lorem ipsum"
-author = [ "Mod Developer 1", "Mod Developer 2" ]
-packageID = "website.mod.author"
-game = "toby.deltarune"
-url = "https://example.com"
-mergeSupport = true
+author = [ "Mod Developer 1", "Mod Developer 2" ] # If you have multiple authors, separate them with commas and put them in quotes.
+packageID = "website.mod.author" # Refer to spec for how to format this
+game = "toby.deltarune" # Refer to spec with the list of supported games
+url = "https://example.com" # Can be any link
+mergeSupport = true # If false, this mod cannot be merged with other mods.
 ai = "no" # Can be "fully", "partial" or "no".
-tags = [ "other", "customization" ]
+tags = [ "other", "customization" ] # (G3M ONLY) Refer to spec for list of supported tags.
 
-[color]
+[color] # RGB values. RGBA not supported
 r = 0
 g = 0
 b = 0
@@ -20,3 +22,9 @@ b = 0
 [[neededFiles]]
 file = "data.win"
 checksum = "YOUR CHECKSUM HERE"
+
+# Repeat as needed:
+
+# [[neededFiles]]
+# file = "data2.win"
+# checksum = "YOUR SECOND CHECKSUM HERE"
