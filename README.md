@@ -7,8 +7,12 @@ This type of pack is recommended for usage as it is compatible with the popular 
 
 # Specification
 There should be 4 files (2 of which optional) dedicated to mod metadata and patching data.
+
+The 2 mandatory files are:
 - `meta.toml` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
+
+The 2 non-mandatory files are:
 - `page.md` is a file dedicated to storing a mod's page. Deltamod will use this file to display a long description of your mod. You can apply styles to words and add links via the common Markdown stylings, which Deltamod will render out. Images will not be rendered out.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
