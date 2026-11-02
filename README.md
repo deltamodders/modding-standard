@@ -1,16 +1,19 @@
-_Standard Revision 6_<br />
+_Standard Revision 7_<br />
 
 # Deltamod Modding Standard
-This file includes information on how a Deltamod-compatible modpack should be structured.
+This file includes a spec on how a Deltamod-compatible modpack should be structured.
 
-This type of pack is recommended for usage as it is compatible with the most popular mod managers: **Deltamod** (by the Deltamod & GM3P development team) and partial support on **G3M** (formerly Deltahub, by Y114).
+This type of pack is recommended for usage as it is compatible with the popular mod managers **Deltamod** and **G3M**, alongside others.
 
-Additionally, with the newest additions to Deltamod, this format may be the best one for creating GameMaker modpacks, as Deltamod is implementing more GameMaker games alongside DELTARUNE, the main game it was made for.
+# Specification
+There should be 4 files (2 of which optional) dedicated to mod metadata and patching data.
 
-## Basic rules of the format.
-There should be 3 files (1 of which optional) dedicated to mod metadata and patching data.
+The 2 mandatory files are:
 - `meta.toml` is a file dedicated to storing the mod's name, authors, version and target game. It is mainly used in UI and compatibility checks.
 - `modding.xml` consists of <patch> tags, which have three fields: `patch`, `to` and `type`. It is used to define what Deltamod should do to apply your mod.
+
+The 2 non-mandatory files are:
+- `page.md` is a file dedicated to storing a mod's page. Deltamod will use this file to display a long description of your mod. You can apply styles to words and add links via the common Markdown stylings, which Deltamod will render out. Images will not be rendered out.
 - `icon.png` is an optional icon the modder can include in their modpack. It must be a 1:1 image (256x256 reccomended but can be any size). It isn't included in this example folder. It is recommended to add one, as it is used in the Deltamod UI and helps the user distinguish mods.
 
 ## `meta.toml`
@@ -106,7 +109,7 @@ If there are any missing/invalid fields, Deltamod will invalidate that specific 
 **g3mpatch** type only supports '.g3mpatch' files.<br /> <br />
 **csx** type only supports '.csx' scripts which work with UTMT.<br /> <br />
 
-## Preparing your archive
+# Preparing your archive
 
 Deltamod supports .ZIP (Preferred format for compatibility with most websites), .7Z, .TAR.GZ and .LZMA archives. They must be packaged like so:
 ```
